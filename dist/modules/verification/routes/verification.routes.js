@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.verificationRouter = void 0;
+const express_1 = require("express");
+const verification_controller_1 = require("../controllers/verification.controller");
+const authenticateUser_1 = require("../../../middleware/authenticateUser");
+const authenticateAdmin_1 = require("../../../middleware/authenticateAdmin");
+const requirePermission_1 = require("../../../middleware/requirePermission");
+exports.verificationRouter = (0, express_1.Router)();
+exports.verificationRouter.post("/", authenticateUser_1.authenticateUser, verification_controller_1.submitVerification);
+exports.verificationRouter.get("/me", authenticateUser_1.authenticateUser, verification_controller_1.getMyVerifications);
+exports.verificationRouter.get("/admin", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("users.view"), verification_controller_1.getAdminVerifications);
+exports.verificationRouter.patch("/admin/:requestId/approve", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("users.edit"), verification_controller_1.approveVerification);

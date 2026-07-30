@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminAuthRouter = void 0;
+const express_1 = require("express");
+const adminAuth_controller_1 = require("../controllers/adminAuth.controller");
+const validateRequest_1 = require("../../../middleware/validateRequest");
+const authenticateAdmin_1 = require("../../../middleware/authenticateAdmin");
+const contracts_1 = require("@omeetso/contracts");
+exports.adminAuthRouter = (0, express_1.Router)();
+exports.adminAuthRouter.post("/login", (0, validateRequest_1.validateBody)(contracts_1.AdminLoginSchema), adminAuth_controller_1.adminLogin);
+exports.adminAuthRouter.post("/two-factor/verify", (0, validateRequest_1.validateBody)(contracts_1.AdminTwoFactorSchema), adminAuth_controller_1.verifyAdmin2FA);
+exports.adminAuthRouter.post("/refresh", adminAuth_controller_1.refreshAdminSession);
+exports.adminAuthRouter.post("/logout", adminAuth_controller_1.logoutAdmin);
+exports.adminAuthRouter.get("/session", authenticateAdmin_1.authenticateAdmin, adminAuth_controller_1.getAdminSession);

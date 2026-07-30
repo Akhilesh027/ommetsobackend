@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminDashboardRouter = void 0;
+const express_1 = require("express");
+const adminDashboard_controller_1 = require("../controllers/adminDashboard.controller");
+const authenticateAdmin_1 = require("../../../middleware/authenticateAdmin");
+const requirePermission_1 = require("../../../middleware/requirePermission");
+exports.adminDashboardRouter = (0, express_1.Router)();
+exports.adminDashboardRouter.get("/summary", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("dashboard.view"), adminDashboard_controller_1.getDashboardSummary);
+exports.adminDashboardRouter.get("/live-activity", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("dashboard.view"), adminDashboard_controller_1.getLiveActivity);
+exports.adminDashboardRouter.get("/audit-logs", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("audit.view"), adminDashboard_controller_1.getAuditLogs);

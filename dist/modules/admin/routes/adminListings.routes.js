@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminListingsRouter = void 0;
+const express_1 = require("express");
+const adminListings_controller_1 = require("../controllers/adminListings.controller");
+const authenticateAdmin_1 = require("../../../middleware/authenticateAdmin");
+const requirePermission_1 = require("../../../middleware/requirePermission");
+exports.adminListingsRouter = (0, express_1.Router)();
+exports.adminListingsRouter.get("/", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("listings.view"), adminListings_controller_1.getAdminListings);
+exports.adminListingsRouter.patch("/:listingId/approve", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("listings.approve"), adminListings_controller_1.approveListing);
+exports.adminListingsRouter.patch("/:listingId/reject", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("listings.reject"), adminListings_controller_1.rejectListing);

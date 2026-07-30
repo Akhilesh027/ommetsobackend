@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.uploadsRouter = void 0;
+const express_1 = require("express");
+const uploads_controller_1 = require("../controllers/uploads.controller");
+const authenticateUser_1 = require("../../../middleware/authenticateUser");
+exports.uploadsRouter = (0, express_1.Router)();
+exports.uploadsRouter.post("/direct", authenticateUser_1.authenticateUser, uploads_controller_1.directUpload);
+exports.uploadsRouter.post("/sign", authenticateUser_1.authenticateUser, uploads_controller_1.signUpload);
+exports.uploadsRouter.post("/complete", authenticateUser_1.authenticateUser, uploads_controller_1.completeUpload);
+exports.uploadsRouter.delete("/:mediaId", authenticateUser_1.authenticateUser, uploads_controller_1.deleteUpload);

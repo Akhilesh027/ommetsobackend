@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminChatsRouter = void 0;
+const express_1 = require("express");
+const adminChats_controller_1 = require("../controllers/adminChats.controller");
+const authenticateAdmin_1 = require("../../../middleware/authenticateAdmin");
+const requirePermission_1 = require("../../../middleware/requirePermission");
+exports.adminChatsRouter = (0, express_1.Router)();
+exports.adminChatsRouter.get("/conversations", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("communication.view"), adminChats_controller_1.getAdminConversations);
+exports.adminChatsRouter.get("/conversations/:conversationId/messages", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("communication.view"), adminChats_controller_1.getAdminConversationMessages);
+exports.adminChatsRouter.patch("/conversations/:conversationId/flag", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("communication.view"), adminChats_controller_1.flagAdminConversation);
+exports.adminChatsRouter.post("/conversations/:conversationId/warning", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("communication.view"), adminChats_controller_1.sendAdminWarningMessage);

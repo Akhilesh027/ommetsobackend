@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminStoresRouter = void 0;
+const express_1 = require("express");
+const adminStores_controller_1 = require("../controllers/adminStores.controller");
+const authenticateAdmin_1 = require("../../../middleware/authenticateAdmin");
+const requirePermission_1 = require("../../../middleware/requirePermission");
+exports.adminStoresRouter = (0, express_1.Router)();
+exports.adminStoresRouter.get("/", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("stores.view"), adminStores_controller_1.getAdminStores);
+exports.adminStoresRouter.patch("/:storeId/approve", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("stores.approve"), adminStores_controller_1.approveStore);
+exports.adminStoresRouter.patch("/:storeId/reject", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("stores.reject"), adminStores_controller_1.rejectStore);

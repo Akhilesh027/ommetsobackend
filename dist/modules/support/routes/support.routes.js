@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.supportRouter = void 0;
+const express_1 = require("express");
+const support_controller_1 = require("../controllers/support.controller");
+const authenticateUser_1 = require("../../../middleware/authenticateUser");
+const authenticateAdmin_1 = require("../../../middleware/authenticateAdmin");
+const requirePermission_1 = require("../../../middleware/requirePermission");
+exports.supportRouter = (0, express_1.Router)();
+exports.supportRouter.post("/tickets", authenticateUser_1.authenticateUser, support_controller_1.createTicket);
+exports.supportRouter.get("/tickets", authenticateUser_1.authenticateUser, support_controller_1.getMyTickets);
+exports.supportRouter.get("/tickets/:ticketId/messages", authenticateUser_1.authenticateUser, support_controller_1.getTicketMessages);
+exports.supportRouter.post("/tickets/:ticketId/messages", authenticateUser_1.authenticateUser, support_controller_1.addTicketMessage);
+exports.supportRouter.get("/admin/tickets", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("support.view"), support_controller_1.getAdminSupportTickets);

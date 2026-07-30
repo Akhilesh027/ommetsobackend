@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.listingsRouter = void 0;
+const express_1 = require("express");
+const listings_controller_1 = require("../controllers/listings.controller");
+const authenticateUser_1 = require("../../../middleware/authenticateUser");
+const validateRequest_1 = require("../../../middleware/validateRequest");
+const contracts_1 = require("@omeetso/contracts");
+exports.listingsRouter = (0, express_1.Router)();
+exports.listingsRouter.get("/", listings_controller_1.getPublicListings);
+exports.listingsRouter.get("/feed", listings_controller_1.getPublicListings);
+exports.listingsRouter.get("/user/me", authenticateUser_1.authenticateUser, listings_controller_1.getMyListings);
+exports.listingsRouter.get("/:listingId", listings_controller_1.getListingById);
+exports.listingsRouter.post("/", authenticateUser_1.authenticateUser, (0, validateRequest_1.validateBody)(contracts_1.CreateListingRequestSchema), listings_controller_1.createListing);
+exports.listingsRouter.get("/user/me", authenticateUser_1.authenticateUser, listings_controller_1.getMyListings);
+exports.listingsRouter.patch("/:listingId", authenticateUser_1.authenticateUser, listings_controller_1.updateListing);
+exports.listingsRouter.post("/:listingId/mark-sold", authenticateUser_1.authenticateUser, listings_controller_1.markListingSold);

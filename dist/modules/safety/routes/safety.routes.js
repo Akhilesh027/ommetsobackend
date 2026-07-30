@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.safetyRouter = void 0;
+const express_1 = require("express");
+const safety_controller_1 = require("../controllers/safety.controller");
+const authenticateUser_1 = require("../../../middleware/authenticateUser");
+const authenticateAdmin_1 = require("../../../middleware/authenticateAdmin");
+const requirePermission_1 = require("../../../middleware/requirePermission");
+exports.safetyRouter = (0, express_1.Router)();
+exports.safetyRouter.post("/", authenticateUser_1.authenticateUser, safety_controller_1.createSafetyReport);
+exports.safetyRouter.get("/admin", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("safety.view"), safety_controller_1.getAdminSafetyReports);
+exports.safetyRouter.patch("/admin/:reportId/resolve", authenticateAdmin_1.authenticateAdmin, (0, requirePermission_1.requirePermission)("safety.investigate"), safety_controller_1.resolveSafetyReport);
