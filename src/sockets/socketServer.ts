@@ -1,5 +1,6 @@
 import { Server as HttpServer } from "http";
 import { Server as SocketIOServer, Socket } from "socket.io";
+import mongoose from "mongoose";
 import { verifyAccessToken, UserTokenPayload } from "../modules/auth/utils/token";
 import { Conversation } from "../modules/chat/models/Conversation";
 import { Message } from "../modules/chat/models/Message";

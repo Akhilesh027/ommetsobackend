@@ -211,7 +211,7 @@ export async function getMyStores(req: AuthenticatedUserRequest, res: Response, 
 
 export async function getStoreListings(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    const { storeId } = req.params;
+    const storeId = (Array.isArray(req.params.storeId) ? req.params.storeId[0] : req.params.storeId || req.params.id) as string;
     const page = Math.max(1, parseInt(req.query.page as string) || 1);
     const limit = Math.min(50, Math.max(1, parseInt(req.query.limit as string) || 20));
     const skip = (page - 1) * limit;

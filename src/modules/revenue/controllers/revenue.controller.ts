@@ -746,6 +746,8 @@ export async function serveAds(req: Request, res: Response, next: NextFunction):
         servedAdId: `default_slot_1_${Date.now()}`,
         campaignId: "default_campaign_1",
         campaignType: "BANNER_AD",
+        listingId: null,
+        storeId: null,
         placement: placement || "HOMEPAGE_HERO",
         creative: {
           imageUrl: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200",
@@ -759,6 +761,8 @@ export async function serveAds(req: Request, res: Response, next: NextFunction):
         servedAdId: `default_slot_2_${Date.now()}`,
         campaignId: "default_campaign_2",
         campaignType: "BANNER_AD",
+        listingId: null,
+        storeId: null,
         placement: placement || "HOMEPAGE_HERO",
         creative: {
           imageUrl: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=1200",
@@ -772,6 +776,8 @@ export async function serveAds(req: Request, res: Response, next: NextFunction):
         servedAdId: `default_slot_3_${Date.now()}`,
         campaignId: "default_campaign_3",
         campaignType: "BANNER_AD",
+        listingId: null,
+        storeId: null,
         placement: placement || "HOMEPAGE_HERO",
         creative: {
           imageUrl: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200",
@@ -785,6 +791,8 @@ export async function serveAds(req: Request, res: Response, next: NextFunction):
         servedAdId: `default_slot_4_${Date.now()}`,
         campaignId: "default_campaign_4",
         campaignType: "BANNER_AD",
+        listingId: null,
+        storeId: null,
         placement: placement || "HOMEPAGE_HERO",
         creative: {
           imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200",
@@ -798,6 +806,8 @@ export async function serveAds(req: Request, res: Response, next: NextFunction):
         servedAdId: `default_slot_5_${Date.now()}`,
         campaignId: "default_campaign_5",
         campaignType: "BANNER_AD",
+        listingId: null,
+        storeId: null,
         placement: placement || "HOMEPAGE_HERO",
         creative: {
           imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200",
@@ -811,6 +821,8 @@ export async function serveAds(req: Request, res: Response, next: NextFunction):
         servedAdId: `default_slot_6_${Date.now()}`,
         campaignId: "default_campaign_6",
         campaignType: "BANNER_AD",
+        listingId: null,
+        storeId: null,
         placement: placement || "HOMEPAGE_HERO",
         creative: {
           imageUrl: "https://images.unsplash.com/photo-1556742049-0a670e4a4591?w=1200",

@@ -1,4 +1,5 @@
 import { Response, NextFunction } from "express";
+import mongoose from "mongoose";
 import { Conversation } from "../models/Conversation";
 import { Message } from "../models/Message";
 import { Offer } from "../models/Offer";
@@ -356,7 +357,7 @@ export async function sendMessage(req: AuthenticatedUserRequest, res: Response, 
       const notif = await Notification.create({
         userId: rId,
         type: "chat_message",
-        title: `New message from ${req.user.firstName || req.user.phone || "Seller/Buyer"}`,
+        title: `New message from ${req.user.profile?.name || req.user.phone || "Seller/Buyer"}`,
         body: text ? (text.length > 60 ? text.substring(0, 60) + "..." : text) : "Sent an attachment",
         link: `/chat/${conversation._id}`
       });
@@ -368,7 +369,7 @@ export async function sendMessage(req: AuthenticatedUserRequest, res: Response, 
     }
 
     if (io) {
-      const senderDisplayName = [req.user.firstName, req.user.lastName].filter(Boolean).join(" ") || req.user.phone || req.user.email || "User";
+      const senderDisplayName = req.user.profile?.name || req.user.phone || req.user.email || "User";
       io.to(`conversation:${conversation._id.toString()}`).emit("message:new", msgPayload);
       io.to("admin:monitoring").emit("admin:message:new", {
         ...msgPayload,

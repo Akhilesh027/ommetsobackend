@@ -385,7 +385,7 @@ export async function markListingSold(req: AuthenticatedUserRequest, res: Respon
 
 export async function recordListingView(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    const { listingId } = req.params;
+    const listingId = (Array.isArray(req.params.listingId) ? req.params.listingId[0] : req.params.listingId) as string;
     if (mongoose.Types.ObjectId.isValid(listingId)) {
       await Listing.findByIdAndUpdate(listingId, { $inc: { "analytics.views": 1 } });
     }
@@ -397,7 +397,7 @@ export async function recordListingView(req: Request, res: Response, next: NextF
 
 export async function recordListingSave(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    const { listingId } = req.params;
+    const listingId = (Array.isArray(req.params.listingId) ? req.params.listingId[0] : req.params.listingId) as string;
     if (mongoose.Types.ObjectId.isValid(listingId)) {
       await Listing.findByIdAndUpdate(listingId, { $inc: { "analytics.saves": 1 } });
     }
