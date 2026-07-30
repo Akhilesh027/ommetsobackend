@@ -12,7 +12,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@omeetso/contracts": ["../packages/contracts/dist/index.d.ts"]
+      "@omeetso/contracts": ["src/contracts/index.ts"]
     }
   },
   "include": ["src/**/*"]
