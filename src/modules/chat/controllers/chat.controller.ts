@@ -564,7 +564,7 @@ export async function getOfferById(req: AuthenticatedUserRequest, res: Response,
       return;
     }
 
-    const { offerId } = req.params;
+    const offerId = (Array.isArray(req.params.offerId) ? req.params.offerId[0] : req.params.offerId) as string;
     if (!mongoose.Types.ObjectId.isValid(offerId)) {
       res.status(200).json({
         success: true,

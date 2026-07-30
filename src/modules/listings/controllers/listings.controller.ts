@@ -95,7 +95,7 @@ export async function getPublicListings(req: Request, res: Response, next: NextF
     if (req.query.pincode) query.pincode = req.query.pincode;
     if (req.query.condition) query.condition = req.query.condition;
 
-    const sellerParam = (req.query.sellerId || req.query.seller) as string;
+    const sellerParam = (Array.isArray(req.query.sellerId) ? req.query.sellerId[0] : req.query.sellerId || req.query.seller) as string;
     if (sellerParam) {
       if (mongoose.Types.ObjectId.isValid(sellerParam)) {
         query.sellerId = new mongoose.Types.ObjectId(sellerParam);
