@@ -3,7 +3,7 @@ import { Listing } from "../../listings/models/Listing";
 import { ListingModeration } from "../../listings/models/ListingModeration";
 import { AuditLog } from "../models/AuditLog";
 import { AuthenticatedAdminRequest } from "../../../middleware/authenticateAdmin";
-import { ListingStatus } from "@omeetso/contracts";
+import { ListingStatus } from "../../../contracts";
 
 export async function getAdminListings(req: AuthenticatedAdminRequest, res: Response, next: NextFunction): Promise<void> {
   try {

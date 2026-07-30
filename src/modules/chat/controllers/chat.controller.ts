@@ -8,7 +8,7 @@ import { Store } from "../../stores/models/Store";
 import { Notification } from "../../notifications/models/Notification";
 import { evaluateChatSafety } from "../../safety/utils/chatSafetyFilter";
 import { SafetyReport } from "../../safety/models/SafetyReport";
-import { SafetyPriority } from "@omeetso/contracts";
+import { SafetyPriority } from "../../../contracts";
 import { AuthenticatedUserRequest } from "../../../middleware/authenticateUser";
 import { getIO } from "../../../sockets/socket-server";
 

@@ -8,7 +8,7 @@ import {
 } from "../controllers/userAuth.controller";
 import { validateBody } from "../../../middleware/validateRequest";
 import { authenticateUser } from "../../../middleware/authenticateUser";
-import { RequestOtpSchema, VerifyOtpSchema } from "@omeetso/contracts";
+import { RequestOtpSchema, VerifyOtpSchema } from "../../../contracts";
 
 export const userAuthRouter = Router();
 

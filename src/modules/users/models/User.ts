@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { UserStatus } from "@omeetso/contracts";
+import { UserStatus } from "../../../contracts";
 
 export interface IUserProfile {
   name: string;

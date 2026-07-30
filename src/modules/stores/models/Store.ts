@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { StoreStatus } from "@omeetso/contracts";
+import { StoreStatus } from "../../../contracts";
 
 export interface IWorkingHour {
   day: "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";

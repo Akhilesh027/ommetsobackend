@@ -6,7 +6,7 @@ import { SafetyReport } from "../../safety/models/SafetyReport";
 import { SupportTicket } from "../../support/models/SupportTicket";
 import { AuditLog } from "../models/AuditLog";
 import { AuthenticatedAdminRequest } from "../../../middleware/authenticateAdmin";
-import { ListingStatus, StoreStatus } from "@omeetso/contracts";
+import { ListingStatus, StoreStatus } from "../../../contracts";
 
 export async function getDashboardSummary(req: AuthenticatedAdminRequest, res: Response, next: NextFunction): Promise<void> {
   try {

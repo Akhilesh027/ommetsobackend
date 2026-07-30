@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { verifyAccessToken, UserTokenPayload } from "../modules/auth/utils/token";
 import { User, IUser } from "../modules/users/models/User";
-import { UserStatus } from "@omeetso/contracts";
+import { UserStatus } from "../contracts";
 
 export interface AuthenticatedUserRequest extends Request {
   user?: IUser;

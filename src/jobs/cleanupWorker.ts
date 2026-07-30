@@ -1,6 +1,6 @@
 import { MediaAsset } from "../modules/uploads/models/MediaAsset";
 import { Listing } from "../modules/listings/models/Listing";
-import { ListingStatus } from "@omeetso/contracts";
+import { ListingStatus } from "../contracts";
 
 export function startBackgroundWorkers(): void {
   console.log("[Worker] Background cleanup worker initialized (Interval: 1 hour)");

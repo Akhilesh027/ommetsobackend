@@ -3,7 +3,7 @@ import { SupportTicket } from "../models/SupportTicket";
 import { SupportMessage } from "../models/SupportMessage";
 import { AuthenticatedUserRequest } from "../../../middleware/authenticateUser";
 import { AuthenticatedAdminRequest } from "../../../middleware/authenticateAdmin";
-import { SupportPriority, SupportStatus } from "@omeetso/contracts";
+import { SupportPriority, SupportStatus } from "../../../contracts";
 
 export async function createTicket(req: AuthenticatedUserRequest, res: Response, next: NextFunction): Promise<void> {
   try {

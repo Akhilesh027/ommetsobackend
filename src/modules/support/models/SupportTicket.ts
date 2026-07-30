@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { SupportPriority, SupportStatus } from "@omeetso/contracts";
+import { SupportPriority, SupportStatus } from "../../../contracts";
 
 export interface ISupportTicket extends Document {
   _id: mongoose.Types.ObjectId;

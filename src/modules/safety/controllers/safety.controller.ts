@@ -3,7 +3,7 @@ import { SafetyReport } from "../models/SafetyReport";
 import { AuditLog } from "../../admin/models/AuditLog";
 import { AuthenticatedUserRequest } from "../../../middleware/authenticateUser";
 import { AuthenticatedAdminRequest } from "../../../middleware/authenticateAdmin";
-import { SafetyPriority } from "@omeetso/contracts";
+import { SafetyPriority } from "../../../contracts";
 
 export async function createSafetyReport(req: AuthenticatedUserRequest, res: Response, next: NextFunction): Promise<void> {
   try {

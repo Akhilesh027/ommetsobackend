@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { ListingStatus } from "@omeetso/contracts";
+import { ListingStatus } from "../../../contracts";
 
 export interface IListingRejection {
   reason: string;

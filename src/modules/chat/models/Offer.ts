@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { OfferStatus } from "@omeetso/contracts";
+import { OfferStatus } from "../../../contracts";
 
 export interface IOffer extends Document {
   _id: mongoose.Types.ObjectId;

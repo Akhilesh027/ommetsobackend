@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { SafetyPriority } from "@omeetso/contracts";
+import { SafetyPriority } from "../../../contracts";
 
 export interface ISafetyReport extends Document {
   _id: mongoose.Types.ObjectId;

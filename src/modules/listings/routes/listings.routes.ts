@@ -11,7 +11,7 @@ import {
 } from "../controllers/listings.controller";
 import { authenticateUser } from "../../../middleware/authenticateUser";
 import { validateBody } from "../../../middleware/validateRequest";
-import { CreateListingRequestSchema } from "@omeetso/contracts";
+import { CreateListingRequestSchema } from "../../../contracts";
 
 export const listingsRouter = Router();
 

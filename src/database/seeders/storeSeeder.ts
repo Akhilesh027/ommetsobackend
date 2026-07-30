@@ -1,6 +1,6 @@
 import { Store } from "../../modules/stores/models/Store";
 import { User } from "../../modules/users/models/User";
-import { StoreStatus } from "@omeetso/contracts";
+import { StoreStatus } from "../../contracts";
 import mongoose from "mongoose";
 
 export async function seedStores(): Promise<void> {

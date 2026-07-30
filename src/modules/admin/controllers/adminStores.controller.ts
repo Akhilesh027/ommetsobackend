@@ -2,7 +2,7 @@ import { Response, NextFunction } from "express";
 import { Store } from "../../stores/models/Store";
 import { AuditLog } from "../models/AuditLog";
 import { AuthenticatedAdminRequest } from "../../../middleware/authenticateAdmin";
-import { StoreStatus } from "@omeetso/contracts";
+import { StoreStatus } from "../../../contracts";
 
 export async function getAdminStores(req: AuthenticatedAdminRequest, res: Response, next: NextFunction): Promise<void> {
   try {

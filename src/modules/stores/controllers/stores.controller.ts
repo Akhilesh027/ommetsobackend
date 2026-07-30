@@ -3,7 +3,7 @@ import { Store } from "../models/Store";
 import { StoreMember } from "../models/StoreMember";
 import { Listing } from "../../listings/models/Listing";
 import { AuthenticatedUserRequest } from "../../../middleware/authenticateUser";
-import { StoreStatus, ListingStatus } from "@omeetso/contracts";
+import { StoreStatus, ListingStatus } from "../../../contracts";
 
 export async function createStore(req: AuthenticatedUserRequest, res: Response, next: NextFunction): Promise<void> {
   try {

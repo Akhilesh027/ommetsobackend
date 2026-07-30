@@ -8,7 +8,7 @@ import {
 } from "../controllers/adminAuth.controller";
 import { validateBody } from "../../../middleware/validateRequest";
 import { authenticateAdmin } from "../../../middleware/authenticateAdmin";
-import { AdminLoginSchema, AdminTwoFactorSchema } from "@omeetso/contracts";
+import { AdminLoginSchema, AdminTwoFactorSchema } from "../../../contracts";
 
 export const adminAuthRouter = Router();
 

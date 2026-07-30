@@ -4,7 +4,7 @@ import { Listing } from "../models/Listing";
 import { ListingRevision } from "../models/ListingRevision";
 import { ListingModeration } from "../models/ListingModeration";
 import { AuthenticatedUserRequest } from "../../../middleware/authenticateUser";
-import { ListingStatus } from "@omeetso/contracts";
+import { ListingStatus } from "../../../contracts";
 
 export async function createListing(req: AuthenticatedUserRequest, res: Response, next: NextFunction): Promise<void> {
   try {
